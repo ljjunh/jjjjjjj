@@ -94,7 +94,7 @@ const handleTripCardSelect = async (destination) => {
   <div id="section-wrap">
     <section class="my-12">
       <h2 class="text-5xl font-bold text-center mb-6">
-        어디로 여행을 떠나시나요?!!!!!!!
+        어디로 여행을 떠나시나요?!!
       </h2>
       <p class="text-center text-lg mb-4">
         떠나고 싶은 곳과 어떤 여행을 떠나고 싶은지 골라주세요
