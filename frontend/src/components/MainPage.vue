@@ -1,14 +1,14 @@
 <script setup>
-import TripCard from './TripCard.vue';
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useDestinationStore } from '@/stores/mapstore.js';
-import ListBoxCities from './listbox/ListBoxCities.vue';
-import ListBoxGuguns from './listbox/ListBoxGuguns.vue';
-import ListBoxContents from './listbox/ListBoxContents.vue';
-import Swal from 'sweetalert2';
+import TripCard from "./TripCard.vue";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useDestinationStore } from "@/stores/mapstore.js";
+import ListBoxCities from "./listbox/ListBoxCities.vue";
+import ListBoxGuguns from "./listbox/ListBoxGuguns.vue";
+import ListBoxContents from "./listbox/ListBoxContents.vue";
+import Swal from "sweetalert2";
 
-import axios from 'axios';
+import axios from "axios";
 
 const { destinations } = useDestinationStore();
 
@@ -26,7 +26,7 @@ const isContentUpdated = ref(false);
 
 const handleGugunSelected = (gugun) => {
   selectedGugun.value = gugun;
-  console.log('Selected Gugun:', selectedGugun.value);
+  console.log("Selected Gugun:", selectedGugun.value);
   isGugunUpdated.value = true;
   setTimeout(() => {
     isGugunUpdated.value = false;
@@ -35,7 +35,7 @@ const handleGugunSelected = (gugun) => {
 
 const handleContentSelected = (content) => {
   selectedContent.value = content;
-  console.log('Selected Content:', selectedContent.value);
+  console.log("Selected Content:", selectedContent.value);
   isContentUpdated.value = true;
   setTimeout(() => {
     isContentUpdated.value = false;
@@ -52,7 +52,7 @@ const handleSidoSelection = async (sido) => {
   }));
   console.log(guguns.value);
   selectedSido.value = sido;
-  console.log('Selected Sido:', selectedSido.value);
+  console.log("Selected Sido:", selectedSido.value);
   isSidoUpdated.value = true;
   setTimeout(() => {
     isSidoUpdated.value = false;
@@ -61,16 +61,16 @@ const handleSidoSelection = async (sido) => {
 
 const handleSearch = () => {
   console.log(
-    'Sido:',
+    "Sido:",
     selectedSido.value,
-    'Gugun:',
+    "Gugun:",
     selectedGugun.value,
-    'Content:',
+    "Content:",
     selectedContent.value
   );
   if (selectedSido.value && selectedGugun.value && selectedContent.value) {
     router.push({
-      name: 'Map',
+      name: "Map",
       query: {
         sidoCode: selectedSido.value.id,
         gugunCode: selectedGugun.value.id,
@@ -78,7 +78,7 @@ const handleSearch = () => {
       },
     });
   } else {
-    Swal.fire('모든 옵션을 선택해야합니다!', '도시를 선택해주세요', 'error');
+    Swal.fire("모든 옵션을 선택해야합니다!", "도시를 선택해주세요", "error");
   }
 };
 
@@ -94,7 +94,7 @@ const handleTripCardSelect = async (destination) => {
   <div id="section-wrap">
     <section class="my-12">
       <h2 class="text-5xl font-bold text-center mb-6">
-        어디로 여행을 떠나시나요?
+        어디로 여행을 떠나시나요?!!
       </h2>
       <p class="text-center text-lg mb-4">
         떠나고 싶은 곳과 어떤 여행을 떠나고 싶은지 골라주세요
